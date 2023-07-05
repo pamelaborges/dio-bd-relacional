@@ -1,15 +1,10 @@
 -- 1 forma normal --
--- Criação da nova tabela "usuarios" conforme a 1ª forma normal
-CREATE TABLE usuarios (
-  id INT,
-  nome VARCHAR(255) NOT NULL,
-  rua VARCHAR(255) NOT NULL,
-  numero INT NOT NULL,
-  cidade VARCHAR(255) NOT NULL,
-  estado VARCHAR(255) NOT NULL,
-  pais VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id)
-);
+-- Adição das colunas para os componentes do endereço
+ALTER TABLE usuarios
+ADD COLUMN rua VARCHAR(255) NOT NULL,
+ADD COLUMN numero INT NOT NULL,
+ADD COLUMN cidade VARCHAR(255) NOT NULL,
+ADD COLUMN estado VARCHAR(255) NOT NULL;
 
 -- Copia os dados da tabela original para a nova tabela
 INSERT INTO usuarios (id, nome, rua, numero, cidade, estado, pais)
