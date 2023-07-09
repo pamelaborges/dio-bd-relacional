@@ -7,13 +7,11 @@ ADD COLUMN cidade VARCHAR(255) NOT NULL,
 ADD COLUMN estado VARCHAR(255) NOT NULL;
 
 -- Copia os dados da tabela original para a nova tabela
-INSERT INTO usuarios (id, nome, rua, numero, cidade, estado, pais)
-SELECT id, nome, SUBSTRING_INDEX(endereco, ',', 1) AS rua,
-       SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', 2), ' ', -1) AS numero,
-       SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', -2), ' ', -1) AS cidade,
-       SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', -1), ' ', -1) AS estado,
-       SUBSTRING_INDEX(endereco, ',', -1) AS pais
-FROM usuarios;
+UPDATE usuarios
+SET rua = SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', 1), ',', -1),
+    numero = SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', 2), ',', -1),
+    cidade = SUBSTRING_INDEX(SUBSTRING_INDEX(endereco, ',', 3), ',', -1),
+    estado = SUBSTRING_INDEX(endereco, ',', -1);
 
 -- Exclusão da coluna "endereco" da tabela original
 ALTER TABLE usuarios
