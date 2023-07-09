@@ -11,7 +11,7 @@ CREATE TABLE usuarios_nova (
 -- Migrando os dados --
 
 INSERT INTO usuarios_nova
-SELECT * from usuarios_nova;
+SELECT * from usuarios;
 
 -- Excluindo tabela anterior --
 DROP table usuarios;
