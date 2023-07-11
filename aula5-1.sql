@@ -1,4 +1,4 @@
-INSERT INTO usuarios (nome, email, data_nascimento, endereco) VALUES ('Usuario sem reservas', 'semreservar@teste.com', '1990-10-10', 'Rua sem reversas');
+INSERT INTO usuarios (nome, email, data_nascimento, rua, numero, cidade, estado) VALUES ('Usuario sem reservas', 'semreservar@teste.com', '1990-10-10', 'Rua','123','cidade','estado');
 
 -- Traz apenas os usuario com reservas
 SELECT * FROM usuarios us
