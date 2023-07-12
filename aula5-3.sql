@@ -1,6 +1,6 @@
 -- Inserindo massa de dados --
 
-INSERT INTO usuarios (nome, email, data_nascimento, endereco) VALUES
+INSERT INTO usuarios (nome, email, data_nascimento, rua) VALUES
 ('João Silva', 'joao.silva@example.com', '1990-01-01', 'Rua A'),
 ('Maria Santos', 'maria.santos@example.com', '1992-03-15', 'Rua B'),
 ('Pedro Almeida', 'pedro.almeida@example.com', '1985-07-10', 'Rua C'),
